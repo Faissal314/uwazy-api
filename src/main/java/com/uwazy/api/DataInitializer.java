@@ -37,6 +37,13 @@ public class DataInitializer implements CommandLineRunner {
             categoryRepository.save(sec);
         }
 
+        if (categoryRepository.findByName("Bureautique (la suite office)").isEmpty()) {
+            Category office = new Category();
+            office.setName("Bureautique (la suite office)");
+            office.setDescription("Maîtrisez Word, Excel, PowerPoint, etc.");
+            categoryRepository.save(office);
+        }
+
         if (userRepository.count() == 0) {
             User admin = new User();
             admin.setFirstName("Admin");
